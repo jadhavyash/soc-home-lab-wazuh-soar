@@ -1,0 +1,34 @@
+{
+  "name": "Wazuh Alert Triage -> TheHive",
+  "description": "Auto-creates TheHive case for Wazuh alerts level 10+",
+  "trigger": {
+    "type": "webhook",
+    "description": "Wazuh integration webhook"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "name": "Receive Wazuh Alert",
+      "action": "parse JSON \u2014 extract source_ip, rule_id, level, description"
+    },
+    {
+      "step": 2,
+      "name": "VirusTotal IP Lookup",
+      "action": "GET https://www.virustotal.com/api/v3/ip_addresses/{source_ip}",
+      "requires": "VT_API_KEY"
+    },
+    {
+      "step": 3,
+      "name": "Create TheHive Case",
+      "action": "POST http://thehive:9000/api/v1/case",
+      "body": {
+        "title": "Wazuh: {rule_description}",
+        "severity": 2,
+        "tags": [
+          "wazuh",
+          "automated"
+        ]
+      }
+    }
+  ]
+}
