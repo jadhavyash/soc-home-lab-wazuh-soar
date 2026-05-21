@@ -1,0 +1,72 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="500" fill="#0d1117"/>
+
+  <text x="450" y="36" text-anchor="middle" fill="#e6edf3" font-size="17" font-weight="600">Shuffle SOAR — Alert Triage Playbook</text>
+  <text x="450" y="54" text-anchor="middle" fill="#7d8590" font-size="11">Automated workflow: Wazuh alert → IOC enrichment → TheHive case</text>
+
+  <!-- Step 1: Wazuh Webhook -->
+  <rect x="330" y="75" width="240" height="64" rx="8" fill="#1d3461" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="450" y="99" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">① Trigger — Wazuh Webhook</text>
+  <text x="450" y="117" text-anchor="middle" fill="#7d8590" font-size="11">Alert level ≥ 10 fires webhook</text>
+  <text x="450" y="132" text-anchor="middle" fill="#7d8590" font-size="10">rule_id · level · source_ip · description</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="141" x2="450" y2="170" stroke="#7d8590" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Step 2: Parse Alert -->
+  <rect x="330" y="172" width="240" height="56" rx="8" fill="#1a2535" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="450" y="196" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="600">② Parse Alert JSON</text>
+  <text x="450" y="214" text-anchor="middle" fill="#7d8590" font-size="11">Extract source_ip, rule_id, severity</text>
+
+  <!-- Arrow down + branch -->
+  <line x1="450" y1="230" x2="450" y2="256" stroke="#7d8590" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Step 3a: VirusTotal -->
+  <rect x="100" y="258" width="200" height="56" rx="8" fill="#1c1a0f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="200" y="282" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="600">③a VirusTotal Lookup</text>
+  <text x="200" y="300" text-anchor="middle" fill="#7d8590" font-size="11">IP reputation · malicious score</text>
+
+  <!-- Step 3b: AbuseIPDB -->
+  <rect x="600" y="258" width="200" height="56" rx="8" fill="#1c1a0f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="700" y="282" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="600">③b AbuseIPDB Check</text>
+  <text x="700" y="300" text-anchor="middle" fill="#7d8590" font-size="11">Abuse confidence score</text>
+
+  <!-- Branch lines -->
+  <line x1="450" y1="258" x2="300" y2="258" stroke="#f59e0b" stroke-width="1.2"/>
+  <line x1="300" y1="258" x2="300" y2="272" stroke="#f59e0b" stroke-width="1.2" marker-end="url(#a2)"/>
+  <line x1="450" y1="258" x2="600" y2="258" stroke="#f59e0b" stroke-width="1.2"/>
+  <line x1="600" y1="258" x2="600" y2="272" stroke="#f59e0b" stroke-width="1.2" marker-end="url(#a2)"/>
+
+  <!-- Merge lines -->
+  <line x1="200" y1="314" x2="200" y2="355" stroke="#7d8590" stroke-width="1.2"/>
+  <line x1="200" y1="355" x2="450" y2="355" stroke="#7d8590" stroke-width="1.2"/>
+  <line x1="700" y1="314" x2="700" y2="355" stroke="#7d8590" stroke-width="1.2"/>
+  <line x1="700" y1="355" x2="450" y2="355" stroke="#7d8590" stroke-width="1.2"/>
+  <line x1="450" y1="355" x2="450" y2="368" stroke="#7d8590" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Step 4: Create TheHive Case -->
+  <rect x="280" y="370" width="340" height="64" rx="8" fill="#0d2818" stroke="#10b981" stroke-width="1.5"/>
+  <text x="450" y="394" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="600">④ Create TheHive Case</text>
+  <text x="450" y="412" text-anchor="middle" fill="#7d8590" font-size="11">Title · Severity · Tags · Enriched description</text>
+  <text x="450" y="428" text-anchor="middle" fill="#7d8590" font-size="10">Assigned to analyst · Status: New</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="436" x2="450" y2="458" stroke="#7d8590" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Step 5: Notify -->
+  <rect x="330" y="460" width="240" height="28" rx="8" fill="#1c1410" stroke="#ef4444" stroke-width="1"/>
+  <text x="450" y="479" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">⑤ Slack notification → SOC analyst</text>
+
+  <!-- Labels -->
+  <text x="200" y="246" text-anchor="middle" fill="#f59e0b" font-size="10">Parallel enrichment</text>
+  <text x="700" y="246" text-anchor="middle" fill="#f59e0b" font-size="10">Parallel enrichment</text>
+
+  <defs>
+    <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7d8590"/>
+    </marker>
+    <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+</svg>

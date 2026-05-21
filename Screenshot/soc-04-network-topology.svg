@@ -1,0 +1,80 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="460" fill="#0d1117"/>
+
+  <text x="450" y="34" text-anchor="middle" fill="#e6edf3" font-size="17" font-weight="600">Network Topology — Docker Bridge Network</text>
+  <text x="450" y="52" text-anchor="middle" fill="#7d8590" font-size="11">Subnet: 172.20.0.0/16 · All services on soc-lab bridge network</text>
+
+  <!-- Docker host box -->
+  <rect x="20" y="65" width="860" height="360" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="450" y="88" text-anchor="middle" fill="#7d8590" font-size="11" font-weight="600">DOCKER HOST — Windows / Linux</text>
+
+  <!-- Wazuh Manager -->
+  <rect x="60" y="105" width="175" height="90" rx="8" fill="#1d3461" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="147" y="128" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">wazuh-manager</text>
+  <text x="147" y="147" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.2</text>
+  <text x="147" y="163" text-anchor="middle" fill="#fbbf24" font-size="10">:55000 (API)</text>
+  <text x="147" y="179" text-anchor="middle" fill="#fbbf24" font-size="10">:1514 (agent)</text>
+
+  <!-- Wazuh Indexer -->
+  <rect x="260" y="105" width="175" height="90" rx="8" fill="#1d3461" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="347" y="128" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">wazuh-indexer</text>
+  <text x="347" y="147" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.3</text>
+  <text x="347" y="163" text-anchor="middle" fill="#fbbf24" font-size="10">:9200 (OpenSearch)</text>
+
+  <!-- Wazuh Dashboard -->
+  <rect x="460" y="105" width="175" height="90" rx="8" fill="#1d3461" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="547" y="128" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600">wazuh-dashboard</text>
+  <text x="547" y="147" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.4</text>
+  <text x="547" y="163" text-anchor="middle" fill="#4ade80" font-size="10">:443 → localhost:443</text>
+  <text x="547" y="179" text-anchor="middle" fill="#7d8590" font-size="10">Web UI (HTTPS)</text>
+
+  <!-- Shuffle -->
+  <rect x="60" y="230" width="175" height="80" rx="8" fill="#1c1a0f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="147" y="254" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="600">shuffle-frontend</text>
+  <text x="147" y="272" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.5</text>
+  <text x="147" y="288" text-anchor="middle" fill="#4ade80" font-size="10">:3001 → localhost:3001</text>
+
+  <!-- TheHive -->
+  <rect x="260" y="230" width="175" height="80" rx="8" fill="#0d2818" stroke="#10b981" stroke-width="1.5"/>
+  <text x="347" y="254" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="600">thehive</text>
+  <text x="347" y="272" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.6</text>
+  <text x="347" y="288" text-anchor="middle" fill="#4ade80" font-size="10">:9000 → localhost:9000</text>
+
+  <!-- Cassandra -->
+  <rect x="460" y="230" width="175" height="80" rx="8" fill="#1a1a1a" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="547" y="254" text-anchor="middle" fill="#d1d5db" font-size="12" font-weight="600">cassandra</text>
+  <text x="547" y="272" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.7</text>
+  <text x="547" y="288" text-anchor="middle" fill="#7d8590" font-size="10">:9042 (internal only)</text>
+
+  <!-- Shuffle Backend -->
+  <rect x="660" y="230" width="175" height="80" rx="8" fill="#1c1a0f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="747" y="254" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="600">shuffle-backend</text>
+  <text x="747" y="272" text-anchor="middle" fill="#7d8590" font-size="10">172.20.0.8</text>
+  <text x="747" y="288" text-anchor="middle" fill="#4ade80" font-size="10">:5001 (API)</text>
+
+  <!-- Wazuh Agent (external) -->
+  <rect x="660" y="105" width="175" height="90" rx="8" fill="#1a1a1a" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="747" y="128" text-anchor="middle" fill="#d1d5db" font-size="12" font-weight="600">Wazuh Agent</text>
+  <text x="747" y="147" text-anchor="middle" fill="#7d8590" font-size="10">Windows Host</text>
+  <text x="747" y="163" text-anchor="middle" fill="#fbbf24" font-size="10">→ Manager :1514/TCP</text>
+  <text x="747" y="179" text-anchor="middle" fill="#7d8590" font-size="10">FIM · Syscheck · Events</text>
+
+  <!-- Connection lines -->
+  <line x1="235" y1="150" x2="258" y2="150" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="435" y1="150" x2="458" y2="150" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="147" y1="195" x2="147" y2="228" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="347" y1="195" x2="347" y2="228" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="435" y1="270" x2="458" y2="270" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="635" y1="270" x2="658" y2="270" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,2"/>
+  <line x1="660" y1="150" x2="637" y2="150" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4,2"/>
+
+  <!-- Port access labels at bottom -->
+  <rect x="60" y="340" width="780" height="62" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="450" y="360" text-anchor="middle" fill="#7d8590" font-size="10" font-weight="600">EXPOSED PORTS (localhost access)</text>
+  <text x="130" y="380" text-anchor="middle" fill="#60a5fa" font-size="11">Wazuh: :443</text>
+  <text x="290" y="380" text-anchor="middle" fill="#60a5fa" font-size="11">Indexer: :9200</text>
+  <text x="450" y="380" text-anchor="middle" fill="#fbbf24" font-size="11">Shuffle: :3001</text>
+  <text x="610" y="380" text-anchor="middle" fill="#34d399" font-size="11">TheHive: :9000</text>
+  <text x="770" y="380" text-anchor="middle" fill="#fbbf24" font-size="11">Backend: :5001</text>
+  <text x="450" y="396" text-anchor="middle" fill="#4b5563" font-size="10">All services communicate on soc-lab bridge network (172.20.0.0/16)</text>
+</svg>

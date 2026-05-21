@@ -1,0 +1,77 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="420" fill="#0d1117"/>
+
+  <text x="450" y="34" text-anchor="middle" fill="#e6edf3" font-size="17" font-weight="600">Alert Triage Results — SOC Home Lab</text>
+  <text x="450" y="52" text-anchor="middle" fill="#7d8590" font-size="11">Simulated attack scenarios and detection outcomes</text>
+
+  <!-- Stats row -->
+  <rect x="30" y="68" width="180" height="80" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="120" y="96" text-anchor="middle" fill="#7d8590" font-size="11">Alerts Generated</text>
+  <text x="120" y="128" text-anchor="middle" fill="#e6edf3" font-size="32" font-weight="600">50+</text>
+
+  <rect x="230" y="68" width="180" height="80" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="320" y="96" text-anchor="middle" fill="#7d8590" font-size="11">Auto-Triaged by SOAR</text>
+  <text x="320" y="128" text-anchor="middle" fill="#34d399" font-size="32" font-weight="600">30%</text>
+
+  <rect x="430" y="68" width="180" height="80" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="520" y="96" text-anchor="middle" fill="#7d8590" font-size="11">Malicious Traffic Cut</text>
+  <text x="520" y="128" text-anchor="middle" fill="#f87171" font-size="32" font-weight="600">90%</text>
+
+  <rect x="630" y="68" width="180" height="80" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="720" y="96" text-anchor="middle" fill="#7d8590" font-size="11">WAF Detection Coverage</text>
+  <text x="720" y="128" text-anchor="middle" fill="#60a5fa" font-size="32" font-weight="600">100%</text>
+
+  <!-- Attack types table -->
+  <rect x="30" y="170" width="840" height="30" rx="6" fill="#1f2937"/>
+  <text x="50" y="190" fill="#7d8590" font-size="11" font-weight="600">ATTACK TYPE</text>
+  <text x="280" y="190" fill="#7d8590" font-size="11" font-weight="600">TOOL USED</text>
+  <text x="500" y="190" fill="#7d8590" font-size="11" font-weight="600">DETECTION</text>
+  <text x="680" y="190" fill="#7d8590" font-size="11" font-weight="600">SOAR ACTION</text>
+
+  <!-- Row 1 -->
+  <rect x="30" y="200" width="840" height="34" rx="0" fill="#161b22"/>
+  <line x1="30" y1="234" x2="870" y2="234" stroke="#30363d" stroke-width="0.5"/>
+  <text x="50" y="222" fill="#e6edf3" font-size="12">SQL Injection</text>
+  <text x="280" y="222" fill="#fbbf24" font-size="12">SQLMap / DVWA</text>
+  <rect x="490" y="208" width="80" height="18" rx="4" fill="#14532d"/>
+  <text x="530" y="221" text-anchor="middle" fill="#4ade80" font-size="11">✓ Blocked</text>
+  <text x="680" y="222" fill="#7d8590" font-size="12">WAF rule triggered</text>
+
+  <!-- Row 2 -->
+  <rect x="30" y="234" width="840" height="34" rx="0" fill="#0d1117"/>
+  <line x1="30" y1="268" x2="870" y2="268" stroke="#30363d" stroke-width="0.5"/>
+  <text x="50" y="256" fill="#e6edf3" font-size="12">XSS Attack</text>
+  <text x="280" y="256" fill="#fbbf24" font-size="12">Browser / DVWA</text>
+  <rect x="490" y="242" width="80" height="18" rx="4" fill="#14532d"/>
+  <text x="530" y="255" text-anchor="middle" fill="#4ade80" font-size="11">✓ Blocked</text>
+  <text x="680" y="256" fill="#7d8590" font-size="12">WAF rule triggered</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="268" width="840" height="34" rx="0" fill="#161b22"/>
+  <line x1="30" y1="302" x2="870" y2="302" stroke="#30363d" stroke-width="0.5"/>
+  <text x="50" y="290" fill="#e6edf3" font-size="12">Brute Force (SSH)</text>
+  <text x="280" y="290" fill="#fbbf24" font-size="12">Hydra / Medusa</text>
+  <rect x="490" y="276" width="80" height="18" rx="4" fill="#14532d"/>
+  <text x="530" y="289" text-anchor="middle" fill="#4ade80" font-size="11">✓ Detected</text>
+  <text x="680" y="290" fill="#7d8590" font-size="12">Wazuh rule 5712 → IP block</text>
+
+  <!-- Row 4 -->
+  <rect x="30" y="302" width="840" height="34" rx="0" fill="#0d1117"/>
+  <line x1="30" y1="336" x2="870" y2="336" stroke="#30363d" stroke-width="0.5"/>
+  <text x="50" y="324" fill="#e6edf3" font-size="12">File Integrity Violation</text>
+  <text x="280" y="324" fill="#fbbf24" font-size="12">Manual file modification</text>
+  <rect x="490" y="310" width="80" height="18" rx="4" fill="#14532d"/>
+  <text x="530" y="323" text-anchor="middle" fill="#4ade80" font-size="11">✓ Detected</text>
+  <text x="680" y="324" fill="#7d8590" font-size="12">FIM alert → TheHive case</text>
+
+  <!-- Row 5 -->
+  <rect x="30" y="336" width="840" height="34" rx="0" fill="#161b22"/>
+  <text x="50" y="358" fill="#e6edf3" font-size="12">Command Injection</text>
+  <text x="280" y="358" fill="#fbbf24" font-size="12">DVWA / Kali</text>
+  <rect x="490" y="344" width="80" height="18" rx="4" fill="#14532d"/>
+  <text x="530" y="357" text-anchor="middle" fill="#4ade80" font-size="11">✓ Blocked</text>
+  <text x="680" y="358" fill="#7d8590" font-size="12">WAF + SIEM correlated</text>
+
+  <!-- Footer -->
+  <text x="450" y="400" text-anchor="middle" fill="#7d8590" font-size="10">All attacks performed in isolated VirtualBox environment · No production systems affected</text>
+</svg>
